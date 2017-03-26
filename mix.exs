@@ -38,6 +38,7 @@ defmodule Todos.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:ex_machina, "~> 2.0"},
+     {:faker, "~> 0.7"}, 
      {:cowboy, "~> 1.0"}]
   end
 

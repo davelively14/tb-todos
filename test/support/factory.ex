@@ -3,8 +3,8 @@ defmodule Todos.Factory do
 
   def todo_factory do
     %Todos.Todo{
-      title: "Something I need to do",
-      description: "List of steps I need to complete"
+      title: Faker.Name.title,
+      description: Faker.Lorem.Shakespeare.as_you_like_it
     }
   end
 end
