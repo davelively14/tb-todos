@@ -5,6 +5,6 @@ defmodule Todos.Todo do
     field :title
     field :description
 
-    timestamps
+    timestamps()
   end
 end

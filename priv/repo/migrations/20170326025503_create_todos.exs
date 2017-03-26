@@ -5,6 +5,8 @@ defmodule Todos.Repo.Migrations.CreateTodos do
     create table(:todos) do
       add :title, :string
       add :description, :text
+
+      timestamps
     end
   end
 end
