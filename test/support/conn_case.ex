@@ -24,6 +24,7 @@ defmodule Todos.ConnCase do
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
+      import Todos.Factory
 
       import Todos.Router.Helpers
 
