@@ -27,7 +27,7 @@ defmodule Todos.TodoControllerTest do
       conn = build_conn()
       for _ <- 1..10 do insert(:todo) end
 
-      todos = Todo |> Repo.all |> Enum.map(&list_todos/1)
+      todos = Todo |> Repo.all |> Enum.map(&json_todo/1)
 
       conn = get conn, todo_path(conn, :index)
       assert json_response(conn, 200) == %{
@@ -36,7 +36,18 @@ defmodule Todos.TodoControllerTest do
     end
   end
 
-  def list_todos(todo) do
+  describe "GET show" do
+    test "renders a single todo" do
+      conn = build_conn()
+      todo = insert(:todo)
+
+      conn = get conn, todo_path(conn, :show, todo.id)
+
+      assert json_response(conn, 200) == todo |> json_todo
+    end
+  end
+
+  defp json_todo(todo) do
     %{
       "title" => todo.title,
       "description" => todo.description,
